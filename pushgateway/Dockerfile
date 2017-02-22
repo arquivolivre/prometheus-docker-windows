@@ -12,7 +12,7 @@ RUN powershell Invoke-WebRequest -Uri https://github.com/prometheus/pushgateway/
 
 RUN powershell Expand-7zip C:\\pushgateway\\pushgateway-0.3.1.windows-amd64.tar.gz C:\\pushgateway
 
-RUN ["powershell", "Expand-7zip", "C:\\pushgateway\\pushgateway-0.3.1.windows-amd64.tar", "C:\\Program\ Files"]
+RUN powershell Expand-7zip C:\\pushgateway\\pushgateway-0.3.1.windows-amd64.tar \"C:\\Program Files\"
 
 WORKDIR C:\\Program\ Files\\pushgateway-0.3.1.windows-amd64
 

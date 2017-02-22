@@ -12,12 +12,12 @@ RUN powershell Invoke-WebRequest -Uri https://github.com/prometheus/blackbox_exp
 
 RUN powershell Expand-7zip C:\\blackbox_exporter\\blackbox_exporter-0.4.0.windows-amd64.tar.gz C:\\blackbox_exporter
 
-RUN ["powershell", "Expand-7zip", "C:\\blackbox_exporter\\blackbox_exporter-0.4.0.windows-amd64.tar", "$env:ProgramFiles"]
+RUN powershell Expand-7zip C:\\blackbox_exporter\\blackbox_exporter-0.4.0.windows-amd64.tar \"C:\\Program Files\"
 
 WORKDIR C:\\Program\ Files\\blackbox_exporter-0.4.0.windows-amd64
 
 ENTRYPOINT ["blackbox_exporter.exe"]
 
-CMD ["-config.file=config.yml"]
+CMD ["-config.file=blackbox.yml"]
 
 EXPOSE 9115
